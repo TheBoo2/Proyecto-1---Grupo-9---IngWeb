@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Menú | Café Tinaja</title>
+<meta name="description" content="Menú completo de Café Tinaja: bebidas de especialidad, postres y opciones frías.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Karla:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="navbar" id="navbar">
+  <div class="container">
+    <a href="index.html" class="logo">Café <em>Tinaja</em></a>
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks">☰ Menú</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="menu.html" class="active">Menú</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+      <li><a href="https://www.instagram.com/cafetinaja.pa" target="_blank" rel="noopener">Instagram ↗</a></li>
+    </ul>
+  </div>
+</header>
+
+<section style="padding-bottom:0;">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker">Carta completa</span>
+      <h1>Nuestro menú</h1>
+      <p>Tenemos opciones sin lactosa y veganas marcadas en cada tarjeta. La carta de bebidas frías y postres cambia cada mes según temporada.</p>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0;">
+  <div class="container">
+    <form class="filters" onsubmit="return false;">
+      <select name="categoria" aria-label="Filtrar por categoría">
+        <option value="">Todas las categorías</option>
+        <option>Bebidas calientes</option>
+        <option>Bebidas frías</option>
+        <option>Postres</option>
+      </select>
+      <select name="origen" aria-label="Filtrar por origen del café">
+        <option value="">Todos los orígenes</option>
+        <option>Boquete</option>
+        <option>Volcán</option>
+      </select>
+      <input type="text" placeholder="Buscar en el menú…">
+    </form>
+
+    <div class="menu-grid">
+      <article class="menu-card">
+        <div class="menu-photo" style="font-size:2.4rem;">☕</div>
+        <div class="menu-body">
+          <h3>Latte Boquete</h3>
+          <p class="menu-price">$3.25</p>
+          <ul class="menu-tags"><li>Caliente</li><li>Boquete</li></ul>
+        </div>
+      </article>
+      <article class="menu-card">
+        <div class="menu-photo" style="font-size:2.4rem;">🧊</div>
+        <div class="menu-body">
+          <h3>Cold Brew Volcán</h3>
+          <p class="menu-price">$3.75</p>
+          <ul class="menu-tags"><li>Frío</li><li>Volcán</li></ul>
+        </div>
+      </article>
+      <article class="menu-card">
+        <div class="menu-photo" style="font-size:2.4rem;">🍰</div>
+        <div class="menu-body">
+          <h3>Torta de zanahoria</h3>
+          <p class="menu-price">$3.00</p>
+          <ul class="menu-tags"><li>Horneado del día</li></ul>
+        </div>
+      </article>
+      <article class="menu-card">
+        <div class="menu-photo" style="font-size:2.4rem;">🫖</div>
+        <div class="menu-body">
+          <h3>Chai Latte</h3>
+          <p class="menu-price">$3.50</p>
+          <ul class="menu-tags"><li>Sin lactosa</li></ul>
+        </div>
+      </article>
+      <article class="menu-card">
+        <div class="menu-photo" style="font-size:2.4rem;">🍵</div>
+        <div class="menu-body">
+          <h3>Matcha vegano</h3>
+          <p class="menu-price">$3.90</p>
+          <ul class="menu-tags"><li>Vegano</li></ul>
+        </div>
+      </article>
+      <article class="menu-card">
+        <div class="menu-photo" style="font-size:2.4rem;">🍪</div>
+        <div class="menu-body">
+          <h3>Brownie de café</h3>
+          <p class="menu-price">$2.75</p>
+          <ul class="menu-tags"><li>Horneado del día</li></ul>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VIDEO + AUDIO (requisito de la rúbrica) ============ -->
+<section class="section-dark">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker">Detrás del mostrador</span>
+      <h2>Así preparamos tu café</h2>
+      <p>Tostamos en lotes pequeños cada semana y molemos justo antes de preparar cada bebida.</p>
+    </div>
+    <div class="media-block">
+      <video controls poster="">
+        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+        Tu navegador no soporta video HTML5.
+      </video>
+      <div class="audio-row">
+        <span>Playlist de la casa:</span>
+        <audio controls src="https://www.w3schools.com/html/horse.ogg">
+          Tu navegador no soporta audio HTML5.
+        </audio>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker">Recursos</span>
+      <h2>Sobre el café panameño</h2>
+      <p>Nuestro café proviene de fincas de altura en Chiriquí. Si quieres conocer más sobre la denominación de origen,
+        visita la <a href="https://www.staexpo.com" target="_blank" rel="noopener">Feria Internacional del Café de Boquete (STA)</a>
+        o vuelve al <a href="index.html">inicio</a>.
+      </p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4>Café Tinaja</h4>
+        <p>Avenida A, Casco Antiguo, Ciudad de Panamá, Panamá.<br>Lun. a sáb. 7:00 a.m.–7:00 p.m. · Dom. 8:00 a.m.–2:00 p.m.</p>
+        <div class="social-row">
+          <a href="https://www.instagram.com/cafetinaja.pa" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
+          <a href="https://wa.me/50761234567" target="_blank" rel="noopener" aria-label="WhatsApp">WA</a>
+          <a href="https://www.facebook.com/cafetinajapa" target="_blank" rel="noopener" aria-label="Facebook">FB</a>
+        </div>
+      </div>
+      <div>
+        <h4>Navegación</h4>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="menu.html">Menú</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <ul>
+          <li>hola@cafetinaja.pa</li>
+          <li>+507 6123-4567</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Café Tinaja. Todos los derechos reservados.</span>
+      <span>Proyecto 1, Ingeniería Web, UTP · José Centella y Juan Pitti</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const navToggle = document.getElementById('navToggle');
+  const navbar = document.getElementById('navbar');
+  navToggle.addEventListener('click', () => {
+    const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+    navToggle.setAttribute('aria-expanded', String(!expanded));
+    navbar.classList.toggle('open');
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contacto | Café Tinaja</title>
+<meta name="description" content="Escríbenos, reserva una mesa o encuentra cómo llegar a Café Tinaja.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Karla:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="navbar" id="navbar">
+  <div class="container">
+    <a href="index.html" class="logo">Café <em>Tinaja</em></a>
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks">☰ Menú</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="menu.html">Menú</a></li>
+      <li><a href="contacto.html" class="active">Contacto</a></li>
+      <li><a href="https://www.instagram.com/cafetinaja.pa" target="_blank" rel="noopener">Instagram ↗</a></li>
+    </ul>
+  </div>
+</header>
+
+<section style="padding-bottom:0;">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker">Escríbenos</span>
+      <h1>Reserva una mesa o resuelve tus dudas</h1>
+      <p>Aceptamos reservas para grupos de hasta 15 personas y eventos privados fuera de horario. Cuéntanos la fecha y el motivo y te confirmamos disponibilidad.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container contact-grid">
+    <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+    <form class="contact-form" id="form" name="contacto" method="POST" data-netlify="true" novalidate>
+      <input type="hidden" name="form-name" value="contacto">
+      <div class="field">
+        <label for="nombre">Nombre completo</label>
+        <input type="text" id="nombre" name="nombre" required placeholder="Ej. María Pérez" minlength="3">
+        <small class="form-error" id="e-nombre"></small>
+      </div>
+      <div class="field">
+        <label for="correo">Correo electrónico</label>
+        <input type="email" id="correo" name="correo" required placeholder="tucorreo@ejemplo.com">
+        <small class="form-error" id="e-correo"></small>
+      </div>
+      <div class="field">
+        <label for="personas">Número de personas</label>
+        <input type="number" id="personas" name="personas" min="1" max="15" placeholder="2" required>
+        <small class="form-error" id="e-personas"></small>
+      </div>
+      <div class="field">
+        <label for="motivo">Motivo</label>
+        <select id="motivo" name="motivo" required>
+          <option value="">Selecciona una opción</option>
+          <option>Reserva</option>
+          <option>Evento privado</option>
+          <option>Consulta general</option>
+        </select>
+        <small class="form-error" id="e-motivo"></small>
+      </div>
+      <div class="field">
+        <label for="mensaje">Mensaje</label>
+        <textarea id="mensaje" name="mensaje" required placeholder="Cuéntanos la fecha, hora y cualquier detalle adicional" minlength="15"></textarea>
+        <small class="form-error" id="e-mensaje"></small>
+      </div>
+      <button type="submit" class="btn btn-primary">Enviar mensaje</button>
+    </form>
+
+    <div>
+      <dl class="contact-info">
+        <dt>Dirección</dt>
+        <dd>Avenida A, Casco Antiguo, Ciudad de Panamá, Panamá</dd>
+        <dt>Horario</dt>
+        <dd>Lun. a sáb. 7:00 a.m.–7:00 p.m. · Dom. 8:00 a.m.–2:00 p.m.</dd>
+        <dt>Teléfono</dt>
+        <dd>+507 6123-4567</dd>
+        <dt>Correo</dt>
+        <dd>hola@cafetinaja.pa</dd>
+        <dt>Redes</dt>
+        <dd><a href="https://www.instagram.com/cafetinaja.pa" target="_blank" rel="noopener">@cafetinaja.pa</a> en Instagram</dd>
+      </dl>
+      <div class="map-box" style="background:none;">
+        <iframe src="https://www.google.com/maps?q=Casco+Antiguo,+Ciudad+de+Panam%C3%A1&output=embed"
+          width="100%" height="100%" style="border:0;border-radius:20px;" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade" title="Ubicación de Café Tinaja"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4>Café Tinaja</h4>
+        <p>Avenida A, Casco Antiguo, Ciudad de Panamá, Panamá.<br>Lun. a sáb. 7:00 a.m.–7:00 p.m. · Dom. 8:00 a.m.–2:00 p.m.</p>
+        <div class="social-row">
+          <a href="https://www.instagram.com/cafetinaja.pa" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
+          <a href="https://wa.me/50761234567" target="_blank" rel="noopener" aria-label="WhatsApp">WA</a>
+          <a href="https://www.facebook.com/cafetinajapa" target="_blank" rel="noopener" aria-label="Facebook">FB</a>
+        </div>
+      </div>
+      <div>
+        <h4>Navegación</h4>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="menu.html">Menú</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <ul>
+          <li>hola@cafetinaja.pa</li>
+          <li>+507 6123-4567</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Café Tinaja. Todos los derechos reservados.</span>
+      <span>Proyecto 1, Ingeniería Web, UTP · José Centella y Juan Pitti</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const navToggle = document.getElementById('navToggle');
+  const navbar = document.getElementById('navbar');
+  navToggle.addEventListener('click', () => {
+    const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+    navToggle.setAttribute('aria-expanded', String(!expanded));
+    navbar.classList.toggle('open');
+  });
+
+  const f = document.getElementById("form");
+  const reglas = {
+    nombre:   v => /^[A-Za-zÁÉÍÓÚÜÑáéíóúüñ ]{3,60}$/.test(v.trim()) || "Escribe solo letras, entre 3 y 60 caracteres.",
+    correo:   v => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim()) || "Escribe un correo válido, como nombre@dominio.com.",
+    personas: v => /^([1-9]|1[0-5])$/.test(v.trim()) || "Escribe un número entre 1 y 15.",
+    motivo:   v => v !== "" || "Selecciona un motivo.",
+    mensaje:  v => v.trim().length >= 15 || "El mensaje debe tener al menos 15 caracteres."
+  };
+  function validar(campo) {
+    const r = reglas[campo.name](campo.value);
+    const err = document.getElementById("e-" + campo.name);
+    if (err) err.textContent = r === true ? "" : r;
+    campo.classList.toggle("invalido", r !== true);
+    return r === true;
+  }
+  f.querySelectorAll("input:not([type=hidden]), select, textarea").forEach(c => c.addEventListener("blur", () => validar(c)));
+
+  let temporizador;
+  function mostrarToast(mensaje, tipo) {
+    const t = document.getElementById("toast");
+    clearTimeout(temporizador);
+    t.textContent = mensaje;
+    t.className = "toast " + tipo;
+    t.hidden = false;
+    temporizador = setTimeout(() => { t.hidden = true; }, 4000);
+  }
+  function codificar(datos) {
+    return Object.keys(datos).map(k => encodeURIComponent(k) + "=" + encodeURIComponent(datos[k])).join("&");
+  }
+  f.addEventListener("submit", e => {
+    e.preventDefault();
+    let ok = true;
+    f.querySelectorAll("input:not([type=hidden]), select, textarea").forEach(c => { if (!validar(c)) ok = false; });
+    if (!ok) return;
+    const datos = Object.fromEntries(new FormData(f).entries());
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: codificar(datos)
+    })
+    .then(() => {
+      f.reset();
+      mostrarToast("Mensaje enviado correctamente.", "exito");
+    })
+    .catch(() => {
+      mostrarToast("Error: no se pudo enviar el mensaje.", "error");
+    });
+  });
+</script>
+</body>
+</html>
