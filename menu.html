@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
 <title>Menú | Café Tinaja</title>
 <meta name="description" content="Menú completo de Café Tinaja: bebidas de especialidad, postres y opciones frías.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,6 +20,7 @@
       <li><a href="index.html">Inicio</a></li>
       <li><a href="menu.html" class="active">Menú</a></li>
       <li><a href="contacto.html">Contacto</a></li>
+      <li><a href="carrito.html" class="cart-link" id="cartLink" aria-label="Carrito de compras">🛒<span class="cart-badge" id="cartBadge" hidden>0</span></a></li>
       <li><a href="https://www.instagram.com/cafetinaja.pa" target="_blank" rel="noopener">Instagram ↗</a></li>
     </ul>
   </div>
@@ -48,56 +50,63 @@
         <option>Boquete</option>
         <option>Volcán</option>
       </select>
-      <input type="text" placeholder="Buscar en el menú…">
+      <input type="text" id="buscarMenu" placeholder="Buscar en el menú…">
     </form>
 
+    <div id="toastMenu" class="toast" role="status" aria-live="polite" hidden></div>
     <div class="menu-grid">
-      <article class="menu-card">
+      <article class="menu-card" data-categoria="Bebidas calientes" data-origen="Boquete" data-nombre="Latte Boquete">
         <div class="menu-photo" style="font-size:2.4rem;">☕</div>
         <div class="menu-body">
           <h3>Latte Boquete</h3>
           <p class="menu-price">$3.25</p>
           <ul class="menu-tags"><li>Caliente</li><li>Boquete</li></ul>
+          <button type="button" class="btn btn-primary btn-agregar" style="padding:8px 18px;font-size:.85rem;" data-id="latte-boquete" data-nombre="Latte Boquete" data-precio="3.25">Agregar al carrito</button>
         </div>
       </article>
-      <article class="menu-card">
+      <article class="menu-card" data-categoria="Bebidas frías" data-origen="Volcán" data-nombre="Cold Brew Volcán">
         <div class="menu-photo" style="font-size:2.4rem;">🧊</div>
         <div class="menu-body">
           <h3>Cold Brew Volcán</h3>
           <p class="menu-price">$3.75</p>
           <ul class="menu-tags"><li>Frío</li><li>Volcán</li></ul>
+          <button type="button" class="btn btn-primary btn-agregar" style="padding:8px 18px;font-size:.85rem;" data-id="cold-brew-volcan" data-nombre="Cold Brew Volcán" data-precio="3.75">Agregar al carrito</button>
         </div>
       </article>
-      <article class="menu-card">
+      <article class="menu-card" data-categoria="Postres" data-origen="" data-nombre="Torta de zanahoria">
         <div class="menu-photo" style="font-size:2.4rem;">🍰</div>
         <div class="menu-body">
           <h3>Torta de zanahoria</h3>
           <p class="menu-price">$3.00</p>
           <ul class="menu-tags"><li>Horneado del día</li></ul>
+          <button type="button" class="btn btn-primary btn-agregar" style="padding:8px 18px;font-size:.85rem;" data-id="torta-zanahoria" data-nombre="Torta de zanahoria" data-precio="3.00">Agregar al carrito</button>
         </div>
       </article>
-      <article class="menu-card">
+      <article class="menu-card" data-categoria="Bebidas calientes" data-origen="" data-nombre="Chai Latte">
         <div class="menu-photo" style="font-size:2.4rem;">🫖</div>
         <div class="menu-body">
           <h3>Chai Latte</h3>
           <p class="menu-price">$3.50</p>
           <ul class="menu-tags"><li>Sin lactosa</li></ul>
+          <button type="button" class="btn btn-primary btn-agregar" style="padding:8px 18px;font-size:.85rem;" data-id="chai-latte" data-nombre="Chai Latte" data-precio="3.50">Agregar al carrito</button>
         </div>
       </article>
-      <article class="menu-card">
+      <article class="menu-card" data-categoria="Bebidas frías" data-origen="" data-nombre="Matcha vegano">
         <div class="menu-photo" style="font-size:2.4rem;">🍵</div>
         <div class="menu-body">
           <h3>Matcha vegano</h3>
           <p class="menu-price">$3.90</p>
           <ul class="menu-tags"><li>Vegano</li></ul>
+          <button type="button" class="btn btn-primary btn-agregar" style="padding:8px 18px;font-size:.85rem;" data-id="matcha-vegano" data-nombre="Matcha vegano" data-precio="3.90">Agregar al carrito</button>
         </div>
       </article>
-      <article class="menu-card">
+      <article class="menu-card" data-categoria="Postres" data-origen="" data-nombre="Brownie de café">
         <div class="menu-photo" style="font-size:2.4rem;">🍪</div>
         <div class="menu-body">
           <h3>Brownie de café</h3>
           <p class="menu-price">$2.75</p>
           <ul class="menu-tags"><li>Horneado del día</li></ul>
+          <button type="button" class="btn btn-primary btn-agregar" style="padding:8px 18px;font-size:.85rem;" data-id="brownie-cafe" data-nombre="Brownie de café" data-precio="2.75">Agregar al carrito</button>
         </div>
       </article>
     </div>
@@ -158,6 +167,7 @@
           <li><a href="index.html">Inicio</a></li>
           <li><a href="menu.html">Menú</a></li>
           <li><a href="contacto.html">Contacto</a></li>
+          <li><a href="carrito.html">Carrito</a></li>
         </ul>
       </div>
       <div>
@@ -175,6 +185,7 @@
   </div>
 </footer>
 
+<script src="js/carrito.js"></script>
 <script>
   const navToggle = document.getElementById('navToggle');
   const navbar = document.getElementById('navbar');
@@ -182,6 +193,51 @@
     const expanded = navToggle.getAttribute('aria-expanded') === 'true';
     navToggle.setAttribute('aria-expanded', String(!expanded));
     navbar.classList.toggle('open');
+  });
+
+  // ---- Filtrado del menu ----
+  const selCategoria = document.querySelector('select[name="categoria"]');
+  const selOrigen = document.querySelector('select[name="origen"]');
+  const inputBuscar = document.getElementById('buscarMenu');
+
+  function filtrarMenu() {
+    const cat = selCategoria.value;
+    const origen = selOrigen.value;
+    const texto = inputBuscar.value.trim().toLowerCase();
+    document.querySelectorAll('.menu-card').forEach(card => {
+      const coincideCat = !cat || card.dataset.categoria === cat;
+      const coincideOrigen = !origen || card.dataset.origen === origen;
+      const coincideTexto = !texto || card.dataset.nombre.toLowerCase().includes(texto);
+      card.style.display = (coincideCat && coincideOrigen && coincideTexto) ? "" : "none";
+    });
+  }
+  selCategoria.addEventListener('change', filtrarMenu);
+  selOrigen.addEventListener('change', filtrarMenu);
+  inputBuscar.addEventListener('input', filtrarMenu);
+
+  // Si se llega desde "Ver en el menu" (index.html?buscar=Nombre), precargar la busqueda
+  const parametros = new URLSearchParams(location.search);
+  const buscarInicial = parametros.get('buscar');
+  if (buscarInicial) {
+    inputBuscar.value = buscarInicial;
+    filtrarMenu();
+  }
+
+  // ---- Agregar al carrito ----
+  function mostrarToastMenu(mensaje, tipo) {
+    const t = document.getElementById('toastMenu');
+    t.textContent = mensaje;
+    t.className = 'toast ' + tipo;
+    t.hidden = false;
+    clearTimeout(window._toastMenuTimer);
+    window._toastMenuTimer = setTimeout(() => { t.hidden = true; }, 2500);
+  }
+  document.querySelectorAll('.btn-agregar').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const { id, nombre, precio } = btn.dataset;
+      Carrito.agregarAlCarrito(id, nombre, precio);
+      mostrarToastMenu(`${nombre} se agregó al carrito.`, 'exito');
+    });
   });
 </script>
 </body>

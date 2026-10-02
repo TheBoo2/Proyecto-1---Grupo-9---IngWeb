@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
 <title>Café Tinaja | Cafetería de especialidad en Panamá</title>
 <meta name="description" content="Café Tinaja: cafetería de especialidad con café de origen panameño, en el corazón de la ciudad.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,6 +20,7 @@
       <li><a href="index.html" class="active">Inicio</a></li>
       <li><a href="menu.html">Menú</a></li>
       <li><a href="contacto.html">Contacto</a></li>
+      <li><a href="carrito.html" class="cart-link" id="cartLink" aria-label="Carrito de compras">🛒<span class="cart-badge" id="cartBadge" hidden>0</span></a></li>
       <li><a href="https://www.instagram.com/cafetinaja.pa" target="_blank" rel="noopener">Instagram ↗</a></li>
     </ul>
   </div>
@@ -59,6 +61,7 @@
           <h3>Latte Boquete</h3>
           <p class="menu-price">$3.25</p>
           <ul class="menu-tags"><li>Origen: Boquete</li><li>Caliente</li></ul>
+          <a class="btn btn-outline" style="padding:8px 18px;font-size:.85rem;" href="menu.html?buscar=Latte%20Boquete">Ver en el menú</a>
         </div>
       </article>
       <article class="menu-card">
@@ -67,6 +70,7 @@
           <h3>Cold Brew Volcán</h3>
           <p class="menu-price">$3.75</p>
           <ul class="menu-tags"><li>Origen: Volcán</li><li>Frío</li></ul>
+          <a class="btn btn-outline" style="padding:8px 18px;font-size:.85rem;" href="menu.html?buscar=Cold%20Brew%20Volc%C3%A1n">Ver en el menú</a>
         </div>
       </article>
       <article class="menu-card">
@@ -75,6 +79,7 @@
           <h3>Torta de zanahoria</h3>
           <p class="menu-price">$3.00</p>
           <ul class="menu-tags"><li>Horneado del día</li></ul>
+          <a class="btn btn-outline" style="padding:8px 18px;font-size:.85rem;" href="menu.html?buscar=Torta%20de%20zanahoria">Ver en el menú</a>
         </div>
       </article>
     </div>
@@ -126,6 +131,7 @@
           <li><a href="index.html">Inicio</a></li>
           <li><a href="menu.html">Menú</a></li>
           <li><a href="contacto.html">Contacto</a></li>
+          <li><a href="carrito.html">Carrito</a></li>
         </ul>
       </div>
       <div>
@@ -152,5 +158,6 @@
     navbar.classList.toggle('open');
   });
 </script>
+<script src="js/carrito.js"></script>
 </body>
 </html>

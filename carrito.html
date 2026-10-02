@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<title>Carrito | Café Tinaja</title>
+<meta name="description" content="Revisa y confirma tu pedido en Café Tinaja.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Karla:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="navbar" id="navbar">
+  <div class="container">
+    <a href="index.html" class="logo">Café <em>Tinaja</em></a>
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks">☰ Menú</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="menu.html">Menú</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+      <li><a href="carrito.html" class="cart-link" id="cartLink" aria-label="Carrito de compras">🛒<span class="cart-badge" id="cartBadge" hidden>0</span></a></li>
+      <li><a href="https://www.instagram.com/cafetinaja.pa" target="_blank" rel="noopener">Instagram ↗</a></li>
+    </ul>
+  </div>
+</header>
+
+<section style="padding-bottom:0;">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker">Tu pedido</span>
+      <h1>Carrito de compras</h1>
+      <p>Revisa tus productos, ajusta cantidades y confirma tu pedido. Esta es una compra sin inicio de sesión: al confirmar, se te dará una factura en pantalla que debes mostrar a un empleado para que comience a prepararlo.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div id="toastCarrito" class="toast" role="status" aria-live="polite" hidden></div>
+
+    <!-- Vista: carrito vacio -->
+    <div id="vistaVacio" class="cart-empty" hidden>
+      <p>Tu carrito está vacío.</p>
+      <a href="menu.html" class="btn btn-primary">Ir al menú</a>
+    </div>
+
+    <!-- Vista: carrito con productos -->
+    <div id="vistaCarrito" hidden>
+      <div id="listaCarrito" class="cart-list"></div>
+      <div class="cart-summary">
+        <span>Total: <strong id="totalCarrito">$0.00</strong></span>
+        <button type="button" id="btnVaciar" class="btn btn-outline">Vaciar carrito</button>
+      </div>
+
+      <div class="cart-checkout">
+        <h2 style="text-align:center;">Confirmar pedido</h2>
+        <form id="formPedido" name="pedido" method="POST" data-netlify="true" novalidate>
+          <input type="hidden" name="form-name" value="pedido">
+          <input type="hidden" name="resumen_pedido" id="resumenPedido">
+          <input type="hidden" name="total" id="totalOculto">
+          <div class="field">
+            <label for="nombrePedido">Nombre completo</label>
+            <input type="text" id="nombrePedido" name="nombre" required minlength="3" placeholder="Ej. María Pérez">
+            <small class="form-error" id="e-nombrePedido"></small>
+          </div>
+          <div class="field">
+            <label for="telefonoPedido">Teléfono (7 u 8 dígitos)</label>
+            <input type="tel" id="telefonoPedido" name="telefono" required placeholder="61234567">
+            <small class="form-error" id="e-telefonoPedido"></small>
+          </div>
+          <div class="field">
+            <label for="notaPedido">Nota para el barista (opcional)</label>
+            <textarea id="notaPedido" name="nota" placeholder="Ej. sin azúcar, para llevar…"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%;">Confirmar pedido</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Vista: factura de confirmacion -->
+    <div id="vistaFactura" hidden>
+      <div class="factura">
+        <h2>¡Pedido confirmado!</h2>
+        <p class="factura-id" id="facturaId"></p>
+        <ul id="facturaItems"></ul>
+        <div class="factura-total"><span>Total</span><span id="facturaTotal"></span></div>
+        <p class="factura-nota">Muestra esta pantalla a un empleado de Café Tinaja para que comience a preparar tu pedido.</p>
+        <div style="text-align:center;margin-top:18px;">
+          <a href="menu.html" class="btn btn-outline">Hacer otro pedido</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4>Café Tinaja</h4>
+        <p>Avenida A, Casco Antiguo, Ciudad de Panamá, Panamá.<br>Lun. a sáb. 7:00 a.m.–7:00 p.m. · Dom. 8:00 a.m.–2:00 p.m.</p>
+        <div class="social-row">
+          <a href="https://www.instagram.com/cafetinaja.pa" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
+          <a href="https://wa.me/50761234567" target="_blank" rel="noopener" aria-label="WhatsApp">WA</a>
+          <a href="https://www.facebook.com/cafetinajapa" target="_blank" rel="noopener" aria-label="Facebook">FB</a>
+        </div>
+      </div>
+      <div>
+        <h4>Navegación</h4>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="menu.html">Menú</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+          <li><a href="carrito.html">Carrito</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <ul>
+          <li>hola@cafetinaja.pa</li>
+          <li>+507 6123-4567</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Café Tinaja. Todos los derechos reservados.</span>
+      <span>Proyecto 1, Ingeniería Web, UTP · José Centella y Juan Pitti</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/carrito.js"></script>
+<script>
+  const navToggle = document.getElementById('navToggle');
+  const navbar = document.getElementById('navbar');
+  navToggle.addEventListener('click', () => {
+    const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+    navToggle.setAttribute('aria-expanded', String(!expanded));
+    navbar.classList.toggle('open');
+  });
+
+  const vistaVacio = document.getElementById('vistaVacio');
+  const vistaCarrito = document.getElementById('vistaCarrito');
+  const vistaFactura = document.getElementById('vistaFactura');
+  const listaCarrito = document.getElementById('listaCarrito');
+  const totalCarrito = document.getElementById('totalCarrito');
+
+  function fmt(n) { return '$' + n.toFixed(2); }
+
+  function renderCarrito() {
+    const lista = Carrito.leerCarrito();
+    if (lista.length === 0) {
+      vistaVacio.hidden = false;
+      vistaCarrito.hidden = true;
+      vistaFactura.hidden = true;
+      return;
+    }
+    vistaVacio.hidden = true;
+    vistaCarrito.hidden = false;
+
+    listaCarrito.innerHTML = lista.map(p => {
+      const opciones = Array.from({ length: 10 }, (_, i) => i + 1)
+        .map(n => `<option value="${n}" ${n === p.cantidad ? 'selected' : ''}>${n}</option>`).join('');
+      return `
+      <div class="cart-item" data-id="${p.id}">
+        <div class="cart-item-info">
+          <h3>${p.nombre}</h3>
+          <p>${fmt(p.precio)} c/u</p>
+        </div>
+        <div class="cart-item-actions">
+          <label>Cantidad
+            <select class="cart-qty" data-id="${p.id}">${opciones}</select>
+          </label>
+          <span class="cart-subtotal">${fmt(p.precio * p.cantidad)}</span>
+          <button type="button" class="cart-remove" data-id="${p.id}">Eliminar</button>
+        </div>
+      </div>`;
+    }).join('');
+
+    totalCarrito.textContent = fmt(Carrito.totalPrecio(lista));
+
+    listaCarrito.querySelectorAll('.cart-qty').forEach(sel => {
+      sel.addEventListener('change', () => {
+        Carrito.cambiarCantidad(sel.dataset.id, sel.value);
+        renderCarrito();
+      });
+    });
+    listaCarrito.querySelectorAll('.cart-remove').forEach(btn => {
+      btn.addEventListener('click', () => {
+        Carrito.quitarDelCarrito(btn.dataset.id);
+        renderCarrito();
+      });
+    });
+  }
+
+  document.getElementById('btnVaciar').addEventListener('click', () => {
+    Carrito.vaciarCarrito();
+    renderCarrito();
+  });
+
+  renderCarrito();
+
+  // ---- Checkout ----
+  const f = document.getElementById('formPedido');
+  const reglasPedido = {
+    nombre:   v => /^[A-Za-zÁÉÍÓÚÜÑáéíóúüñ ]{3,60}$/.test(v.trim()) || 'Escribe solo letras, entre 3 y 60 caracteres.',
+    telefono: v => /^[0-9]{7,8}$/.test(v.trim()) || 'Escribe 7 u 8 dígitos, sin espacios ni guiones.'
+  };
+  function validarPedido(campo) {
+    const regla = reglasPedido[campo.name];
+    if (!regla) return true;
+    const r = regla(campo.value);
+    const err = document.getElementById('e-' + campo.id);
+    if (err) err.textContent = r === true ? '' : r;
+    campo.classList.toggle('invalido', r !== true);
+    return r === true;
+  }
+  f.querySelectorAll('#nombrePedido, #telefonoPedido').forEach(c => c.addEventListener('blur', () => validarPedido(c)));
+
+  let temporizadorCarrito;
+  function mostrarToastCarrito(mensaje, tipo) {
+    const t = document.getElementById('toastCarrito');
+    clearTimeout(temporizadorCarrito);
+    t.textContent = mensaje;
+    t.className = 'toast ' + tipo;
+    t.hidden = false;
+    temporizadorCarrito = setTimeout(() => { t.hidden = true; }, 4000);
+  }
+  function codificar(datos) {
+    return Object.keys(datos).map(k => encodeURIComponent(k) + '=' + encodeURIComponent(datos[k])).join('&');
+  }
+
+  f.addEventListener('submit', e => {
+    e.preventDefault();
+    let ok = true;
+    f.querySelectorAll('#nombrePedido, #telefonoPedido').forEach(c => { if (!validarPedido(c)) ok = false; });
+    if (!ok) return;
+
+    const lista = Carrito.leerCarrito();
+    if (lista.length === 0) { mostrarToastCarrito('Tu carrito está vacío.', 'error'); return; }
+
+    const total = Carrito.totalPrecio(lista);
+    const resumenTexto = lista.map(p => `${p.cantidad}x ${p.nombre} (${fmt(p.precio * p.cantidad)})`).join(' | ');
+    document.getElementById('resumenPedido').value = resumenTexto;
+    document.getElementById('totalOculto').value = fmt(total);
+
+    const datos = Object.fromEntries(new FormData(f).entries());
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: codificar(datos)
+    })
+    .then(res => {
+      if (!res.ok) throw new Error('Respuesta no valida de Netlify: ' + res.status);
+      const idPedido = 'CT-' + Date.now().toString().slice(-6);
+      document.getElementById('facturaId').textContent = 'Pedido ' + idPedido;
+      document.getElementById('facturaItems').innerHTML = lista.map(p =>
+        `<li><span>${p.cantidad}x ${p.nombre}</span><span>${fmt(p.precio * p.cantidad)}</span></li>`
+      ).join('');
+      document.getElementById('facturaTotal').textContent = fmt(total);
+
+      Carrito.vaciarCarrito();
+      vistaCarrito.hidden = true;
+      vistaFactura.hidden = false;
+    })
+    .catch(() => {
+      mostrarToastCarrito('Error: no se pudo confirmar el pedido.', 'error');
+    });
+  });
+</script>
+</body>
+</html>
