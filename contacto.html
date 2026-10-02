@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="color-scheme" content="light">
 <title>Contacto | Café Tinaja</title>
-<meta name="description" content="Escríbenos, reserva una mesa o encuentra cómo llegar a Café Tinaja.">
+<meta name="description" content="Comparte tus sugerencias, dudas o recomendaciones sobre Café Tinaja.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Karla:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
@@ -30,8 +30,8 @@
   <div class="container">
     <div class="section-head">
       <span class="kicker">Escríbenos</span>
-      <h1>Reserva una mesa o resuelve tus dudas</h1>
-      <p>Aceptamos reservas para grupos de hasta 15 personas y eventos privados fuera de horario. Cuéntanos la fecha y el motivo y te confirmamos disponibilidad.</p>
+      <h1>Tu opinión nos ayuda a mejorar</h1>
+      <p>¿Tienes una sugerencia, una duda o una recomendación sobre Café Tinaja? Cuéntanos qué piensas: leemos cada mensaje y nos ayuda a mejorar.</p>
     </div>
   </div>
 </section>
@@ -52,23 +52,19 @@
         <small class="form-error" id="e-correo"></small>
       </div>
       <div class="field">
-        <label for="personas">Número de personas</label>
-        <input type="number" id="personas" name="personas" min="1" max="15" placeholder="2" required>
-        <small class="form-error" id="e-personas"></small>
-      </div>
-      <div class="field">
-        <label for="motivo">Motivo</label>
+        <label for="motivo">Tipo de mensaje</label>
         <select id="motivo" name="motivo" required>
           <option value="">Selecciona una opción</option>
-          <option>Reserva</option>
-          <option>Evento privado</option>
-          <option>Consulta general</option>
+          <option>Sugerencia</option>
+          <option>Duda</option>
+          <option>Recomendación</option>
+          <option>Otro</option>
         </select>
         <small class="form-error" id="e-motivo"></small>
       </div>
       <div class="field">
         <label for="mensaje">Mensaje</label>
-        <textarea id="mensaje" name="mensaje" required placeholder="Cuéntanos la fecha, hora y cualquier detalle adicional" minlength="15"></textarea>
+        <textarea id="mensaje" name="mensaje" required placeholder="Cuéntanos con detalle tu sugerencia, duda o recomendación" minlength="15"></textarea>
         <small class="form-error" id="e-mensaje"></small>
       </div>
       <button type="submit" class="btn btn-primary">Enviar mensaje</button>
@@ -145,8 +141,7 @@
   const reglas = {
     nombre:   v => /^[A-Za-zÁÉÍÓÚÜÑáéíóúüñ ]{3,60}$/.test(v.trim()) || "Escribe solo letras, entre 3 y 60 caracteres.",
     correo:   v => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim()) || "Escribe un correo válido, como nombre@dominio.com.",
-    personas: v => /^([1-9]|1[0-5])$/.test(v.trim()) || "Escribe un número entre 1 y 15.",
-    motivo:   v => v !== "" || "Selecciona un motivo.",
+    motivo:   v => v !== "" || "Selecciona un tipo de mensaje.",
     mensaje:  v => v.trim().length >= 15 || "El mensaje debe tener al menos 15 caracteres."
   };
   function validar(campo) {
